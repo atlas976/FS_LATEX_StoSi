@@ -1,0 +1,21 @@
+# Archieve
+Archieve/
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.gz
+*.fdb_latexmk
+.*.lb
+.vscode
+# github action result
+semicolon_delimited_script

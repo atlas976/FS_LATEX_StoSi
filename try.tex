@@ -1,3 +1,5 @@
+% te amo mi vida <3
+
 %-------------------------------------------
 %%%%%%% LUKAS FUCHS CHEATSHEAT %%%%%%%%%%%%%
 %-------------------------------------------
@@ -45,7 +47,7 @@
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 \raggedcolumns
-\everymath{\thinmuskip=1mu \medmuskip=0mu \thickmuskip=1mu}
+\everymath{\thinmuskip=0.3mu \medmuskip=0mu \thickmuskip=2mu}
 
 %Customize the sections
 \titleformat{\section}
@@ -74,6 +76,7 @@
 % 1. Boxed Formula
 % Command: \fboxit{formel}
 \newcommand{\fboxit}[1]{
+  \par\vspace*{2pt}\noindent
   \begingroup
     \setlength{\fboxsep}{1.5pt}
     \colorbox{MyPurple1}{
@@ -82,15 +85,14 @@
       \end{varwidth}
     }
   \endgroup
+  \par\vspace*{2pt}\noindent
 }
 
 % 2. Compact List/Table
 % Command: \fgridtable{Titel}{Spaltenanzahl}{Inhalt}
 \newcommand{\fgridtable}[3]{
-  \vspace{0pt}
-    {
-    \par
-    \textbf{#1:} \\
+  \par\vspace*{2pt}\noindent
+    {\textbf{#1:} \\
     \renewcommand{\arraystretch}{1.3} % Increases the row hight for better readability
     \setlength{\tabcolsep}{2pt}      % Minimal margin to the side
     \begin{tabularx}{\linewidth}{|#2|} % \linewidth tells table to stay in his coloum
@@ -98,7 +100,7 @@
       #3 \\ \hline
     \end{tabularx}
     }
-  \vspace{-1pt}
+  \par\vspace*{2pt}\noindent
 }
 %Example:
 %\fgridtable{Vektoren}{Y|Y|Y}{
@@ -110,15 +112,13 @@
 % 3. Simple Alignment
 %Command: \falignleft{formulas}
 \newcommand{\falign}[1]{
-  \vspace{2pt}
-  {
-    \noindent
-    $\begin{aligned}
+  \par\vspace*{2pt}\noindent
+    {$\begin{aligned}
       #1
     \end{aligned}$
     \hspace{-2pt}
-  }
-  \vspace{0pt}
+    }
+  \par\vspace*{2pt}\noindent
 }
 %Example: 
 %\falign{
@@ -129,24 +129,23 @@
 %    x &= 10
 %}
 \newcommand{\faligntext}[2]{%
-  \par\noindent
-  \vspace{3pt}
+  \par\vspace*{2pt}\noindent
   \begin{tabularx}{\linewidth}{@{}l X@{}} % l = Formulawiidth, X = Free space
     \vspace{0pt}$\begin{aligned}[t] #1 \end{aligned}$ & 
     \vspace{0pt}\raggedright\tiny #2 
   \end{tabularx}
-  \par\vspace{-2pt}
+  \par\vspace*{2pt}\noindent
 }
 
 %4. Image inculde command
 % Command: \fimagetext{Width percantage}{Image name}{Text}
 \newcommand{\fimagetext}[3]{%
-  \vspace{2pt}
+  \par\vspace*{2pt}\noindent
   \begin{tabularx}{\linewidth}{@{} p{#1\linewidth} X @{}}
     \vspace{0pt}\includegraphics[width=\linewidth]{#2} & 
     \vspace{0pt}\raggedright\tiny #3 
   \end{tabularx}
-  \par\vspace{-2pt}
+  \par\vspace*{2pt}\noindent
 }
 %Example:
 %\fimagetext{0.4}{mein_diagramm.png}{some text at the side}
@@ -155,25 +154,28 @@
 % 5. Heading and Item commands
 %i)
 \newcommand{\CheatsheetItem}[3]{
-  \vspace{2pt}
-  \item{
-    \small\tiny\textbf{#1}{#2 \vspace{7pt}}{#3}
-  }
+  \par\vspace*{1pt}
+    \item{
+      \small\tiny\textbf{#1}{#2 \vspace{7pt}}{#3}
+    }
+  \par\vspace*{-1pt}\noindent
 }
 
 %ii)
 \newcommand{\CheatsheetHeading}[2]{
-  \vspace{1pt}
+  \par\vspace*{1pt}\noindent
     \begin{tabular*}{0.99\textwidth}[t]{@{}l@{\extracolsep{\fill}}r}
       {\setulcolor{MyPurple2}\color{MyPurple2}\ul{\textbf{#1}}} \textit{\color{gray}#2} \\
-    \end{tabular*}\vspace{2pt}
+    \end{tabular*}
+  \par\vspace*{2pt}\noindent
 }
 
 \newcommand{\CheatsheetSubHeading}[2]{
-  \vspace{1pt}
+  \par\vspace*{2pt}\noindent
     \begin{tabular*}{0.99\textwidth}[t]{@{}l@{\extracolsep{\fill}}r}
       {\setulcolor{orange}\color{orange}\ul{\tiny\textbf{#1}}} \textit{\color{gray}#2} \\
-    \end{tabular*}\vspace{1pt}
+    \end{tabular*}
+  \par\vspace*{2pt}\noindent
 }
 
 \renewcommand{\labelitemi}{\textbullet} 
@@ -194,6 +196,8 @@
 %-------------------------------------------
 \begin{document}
 \tiny\color{MyGray}
+\setlength{\lineskiplimit}{-\maxdimen}
+\linespread{1.2}\selectfont
 \begin{multicols*}{5}
 
 %---------First Row-------------------------
@@ -201,58 +205,52 @@
 \vspace{4pt}
 \section*{Wahrscheinlichkeitsräume:}
 Wahrscheinlichkeitsraum $(\Omega, \mathbb{F}, P)$ besteht aus:
-  \vspace{1pt}
-  \CheatsheetHeading{Ergebnismenge $\Omega$: }{}
-  $\Omega = \{\omega_1, \omega_2, \dots\}$: \text{Menge aller möglichen Ergebnisse.}
   
-  \vspace{1pt}
+  \CheatsheetHeading{Ergebnismenge $\Omega$: }{}
+
+  $\Omega = \{\omega_1, \omega_2, \dots\}$: \text{Menge aller möglichen Ergebnisse.}
+%
   \CheatsheetHeading{Ereignisalgebra $\mathbb{F}$:}{}
+
   $\mathbb{F} = \{A_1, A_2, \dots\}$: \text{Menge von Ereignissen} $A_i \subseteq \Omega$.
-
-    \vspace{0pt}
+%
     \CheatsheetItemListStart
-      \CheatsheetItem{Eigneschaften: }{}{}
+      \CheatsheetItem{Eigenschaften: }{}{}
     \CheatsheetItemListEnd
-
-      \vspace{0pt}
-      $\vspace{3pt}\text{- } \Omega \in \mathbb{F} $ \\
+%
+      $\text{- } \Omega \in \mathbb{F} $ \\
       $\text{- } A_i \in \mathbb{F} \ \Rightarrow \ A_i^c \in \mathbb{F} $ \\
       $\text{- } A_1, \dots, A_k \in \mathbb{F} \ \Rightarrow \ \bigcup_{i=1}^{k} A_i \in \mathbb{F} $ \\
-      %
+%
       \text{- Impliziert: }$\text{- }\emptyset \in \mathbb{F} \text{ }(\Omega^c = \emptyset)\text{ }$ 
       $\text{- } A_i\backslash A_k \in \mathbb{F}\text{ }$
       $\text{- } \bigcap_{i = 1}^k \in \mathbb{F}$
-      %
-    \vspace{0pt}
+%
     \CheatsheetItemListStart
      \CheatsheetItem{Größe: }{}{}
     \CheatsheetItemListEnd 
-
-      \vspace{0pt}
+%
       $\text{- }|\mathbb{F}| \hat{=} 2^{\text{Anzahl an disjunkter Teilmengen}}$ 
-
-  \vspace{1pt}
+%
   \CheatsheetHeading{Wahrscheinlichkeitsmaß P:}{}
+
+  \text{Ordnet jedem Ereignis A eine Wahrscheinlichkeit zu.}
+%
     \CheatsheetItemListStart
-        \CheatsheetItem{Axiome von Kolmogorow: }{}{}
+        \CheatsheetItem{Axiome von Kolmogorow:}{}{}
     \CheatsheetItemListEnd
-    
-      \vspace{0pt}
-      $\vspace{3pt}\text{- } P(A) \ge 0 \ \Rightarrow \ P: \mathbb{F} \mapsto [0,1] \\$
-      $\vspace{-8pt}\text{- }P(\Omega) = 1$ \\
-      $\text{- }P\left(\bigcup A_i\right) = \sum P(A_i) \quad \text{wenn: } \overbrace{A_i \bigcap A_j = \emptyset, \forall i \neq j}^{\text{(disjunkt)}}$
-
-  \vspace{1pt}
+%    
+      $\text{- } P(A) \ge 0 \ \Rightarrow \ P: \mathbb{F} \mapsto [0,1] \\$
+      $\text{- }P(\Omega) = 1$ \\
+      $\text{- }P\left(\bigcup A_i\right) = \sum P(A_i) \quad \text{wenn: } \overbrace{A_i \cap A_j = \emptyset, \forall i \neq j}^{\text{(disjunkt)}}$
+%
   \CheatsheetHeading{Grundlegende Rechenregeln:}{}
-    \vspace{-3pt}
-    
-    $\vspace{3pt}\text{- }P(A^c) = 1 - P(A) $ \\
-    $\vspace{3pt}\text{- }P(\emptyset) = 0 $ \\
-    $\vspace{3pt}\text{- }P(A \setminus B) = P(A) - P(A \cap B) $ \\
-    $\vspace{3pt}\text{- }P(A \cup B) = P(A) + P(B) - P(A \cap B)$
-    
 
-    
+    $\text{- }P(A^c) = 1 - P(A) $ \\
+    $\text{- }P(\emptyset) = 0 $ \hspace{3pt} $\text{- }P(\Omega) = 1 $ \\
+    $\text{- }P(A \setminus B) = P(A) - P(A \cap B) $ \\
+    $\text{- }P(A \bigcup B) = P(A) + P(B) - P(A \cap B)$ \\
+        
 
 
 

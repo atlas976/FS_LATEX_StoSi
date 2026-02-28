@@ -17,5 +17,9 @@ Archieve/
 *.fdb_latexmk
 .*.lb
 .vscode
+information_source/
+
+
+
 # github action result
 semicolon_delimited_script
